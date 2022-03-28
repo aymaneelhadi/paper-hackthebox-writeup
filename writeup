@@ -1,0 +1,19 @@
+open ports
+port ssh 22
+port http 80
+http://10.10.11.143
+the url shows no page so we execute the curl command
+a x-backend  officer.paper shows in the header
+so we should add it to etc/host to run it
+the officer.paper appear and it s a cms wordpress
+after a wpscan 
+the version of this wordpress is vulnerable that allows an unauthenticated user to view private or draft posts due to an issue within WP_Query.
+on exploit.db we find that we can access a secret page 
+we add officer.paper/?static=1 and it shows a secret page that redirect us to a chat page
+the chat dispalys a chatbot who has the right to list files and directories (role of a web shell)
+after testing different files we found and .exe file (hubot)
+after executing it we find the ssh password of the chatbot
+so we connect to the ssh and we find a user.txt that displays the first flag
+and we execute a python cve file that we found as well
+and we have the root
+   
